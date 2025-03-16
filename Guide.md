@@ -1,6 +1,6 @@
 # Hack Club AI API Guide
 
-Welcome to the not-so-boring guide to the Hack Club AI API! Here's how to make a super-smart AI do your bidding across different programming languages. Don't worry, it won't take over the world... probably.
+Welcome to the boring guide to the Hack Club AI API! Here's how to make a super-stuid AI do your tasks across different languages.
 
 ## Table of Contents
 - [Basics](#basics)
