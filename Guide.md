@@ -1,14 +1,19 @@
 # Hack Club AI API Guide
 
-Welcome to the boring guide to the Hack Club AI API! Here's how to make a super-stuid AI do your tasks across different languages.
+Welcome to the boring guide to the Hack Club AI API! Here's how to make a super-stupid AI do your tasks across different languages via the free ai api provided by hackclub.
 
 ## Table of Contents
-- [Basics](#basics)
-- [Understanding Prompts](#understanding-prompts)
-- [Code Examples](#code-examples)
-  - [Python](#python)
-  - [Node.js](#nodejs)
-  - [cURL](#curl)
+- [Hack Club AI API Guide](#hack-club-ai-api-guide)
+  - [Table of Contents](#table-of-contents)
+  - [Basics](#basics)
+    - [Response Format](#response-format)
+  - [Understanding Prompts](#understanding-prompts)
+    - [System Prompts](#system-prompts)
+    - [User Prompts](#user-prompts)
+  - [Code Examples](#code-examples)
+    - [Python](#python)
+    - [Node.js](#nodejs)
+    - [cURL](#curl)
 
 
 ## Basics
@@ -201,4 +206,4 @@ curl -X POST https://ai.hackclub.com/chat/completions \
     }'
 ```
 
-guide by minoa.cat <3
+<sub>guide by minoa.cat<sub>
