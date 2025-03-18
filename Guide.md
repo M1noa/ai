@@ -52,7 +52,7 @@ When the AI responds, it sends back a JSON package that looks something like thi
 
 Let's break down this response:
 - `choices`: Where the AI's brilliant (or sometimes questionable) responses live
-  - `message.content`: The words of wisdom
+  - `message.content`: The words of wisdom (p.s. '\n' means new line)
   - `message.role`: Always "assistant" (because that's just how it rolls)
   - `finish_reason`: Why it stopped talking (usually "stop", not "got distracted by a squirrel")
 - `created`: When this masterpiece was born
