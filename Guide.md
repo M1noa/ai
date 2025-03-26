@@ -206,4 +206,83 @@ curl -X POST https://ai.hackclub.com/chat/completions \
     }'
 ```
 
+## OpenAI-Compatible API
+
+[ai.minoa.cat](https://ai.minoa.cat) is compatible with the OpenAI API format. This means you can use existing OpenAI client libraries and just change the base URL, source code at [M1noa/HackClub-API-Compatable](https://github.com/M1noa/HackClub-API-Compatable)
+
+### OpenAI Compatibility
+
+The following endpoints provide OpenAI compatibility:
+
+- **GET /v1/models**: Lists available models (OpenAI v1 format)
+- **POST /v1/chat/completions**: Creates chat completions (OpenAI v1 format)
+
+### Using with OpenAI Libraries
+
+Here's how to use popular OpenAI libraries with our endpoint:
+
+#### Python (OpenAI Library)
+```python
+import openai
+
+# just point to our url instead of the official one
+client = openai.OpenAI(
+    base_url="https://ai.minoa.cat/v1",  # note the /v1 path
+    api_key="not-needed-but-library-requires-it" # any value works
+)
+
+# use exactly like you would with openai
+response = client.chat.completions.create(
+    model="llama-3.3-70b-versatile",  # our default model
+    messages=[
+        {"role": "system", "content": "you're a coding expert with sarcasm issues."},
+        {"role": "user", "content": "how do i center a div?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+#### Node.js (OpenAI Library)
+```javascript
+import OpenAI from 'openai';
+
+// override the base url to point to our api
+const openai = new OpenAI({
+  baseURL: 'https://ai.minoa.cat/v1', // note the /v1 path
+  apiKey: 'not-needed-but-library-requires-it', // can be any string
+});
+
+async function main() {
+  const completion = await openai.chat.completions.create({
+    model: 'llama-3.3-70b-versatile',
+    messages: [
+      { role: 'system', content: 'you explain code like you\'re extremely tired.' },
+      { role: 'user', content: 'write a function to check if a string is a palindrome' }
+    ],
+  });
+
+  console.log(completion.choices[0].message.content);
+}
+
+main();
+```
+
+### Differences from Official OpenAI API
+
+Before you get too excited, there are some differences to be aware of:
+
+- **Authentication**: No API key is actually required (but libraries might expect one, so you can pass any string)
+- **Models**: We use different models (llama-3.3-70b-versatile is our default)
+- **Rate Limits**: Be reasonable, this is a free service (don't go wild with requests)
+- **Features**: Some advanced OpenAI features might not be supported (function calling, vision, etc.)
+
+### Direct vs OpenAI-Compatible Endpoints
+
+You can use either:
+- Direct endpoints: `POST /chat/completions`
+- OpenAI-compatible endpoints: `POST /v1/chat/completions`
+
+They both do the same thing, but the OpenAI-compatible ones are formatted to work with OpenAI client libraries.
+
 <sub>guide by minoa.cat<sub>
